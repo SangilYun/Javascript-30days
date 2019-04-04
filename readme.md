@@ -1,3 +1,12 @@
+# Everyday has two files. 
+1. Starter file
+2. Done file
+
+I might have a look at the answer when I get stuck but really the goal is doing this by myself.
+
+Massive props to the author of this course 
+---
+
 ![](https://javascript30.com/images/JS3-social-share.png)
 
 # JavaScript30
