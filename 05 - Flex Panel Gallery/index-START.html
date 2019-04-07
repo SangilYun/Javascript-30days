@@ -129,6 +129,8 @@
 
     function toggleActive(e){
       console.log(e.propertyName);
+      //safari and the rest of browsers have different name.
+      //flex-grow and just flex
       if(e.propertyName.includes('flex')){
         this.classList.toggle("open-active")
       }
