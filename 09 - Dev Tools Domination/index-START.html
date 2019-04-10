@@ -9,6 +9,7 @@
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
   <script>
+    //break on - attribute modifications (debugging tool)
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
 
     function makeGreen() {
@@ -18,29 +19,61 @@
     }
 
     // Regular
-
+    console.log('hello');
+    
     // Interpolated
+    console.log('hello %s','string'); //old way
+    console.log(`hello ${"string"}`)  //es 6 backtick
 
     // Styled
-
+    console.log('%c I am some great text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue');
+    
     // warning!
-
+    console.warn('oh nooo');
+    
     // Error :|
+    console.error('error!!!!');
 
     // Info
+    console.info('console info!');
 
     // Testing
-
+    console.assert(1 === 2,'assert!')
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    const p =document.querySelector('p');
+    console.log(p);
+    console.dir(p);
 
+    console.clear();
     // Grouping together
+    dogs.forEach(dog=>{
+      // console.group(`${dog.name}`);
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`this is ${dog.name}`);
+      console.log(`this is ${dog.age}`);
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
-
+    console.count('wes');
+    console.count('wes');
+    console.count('wes');
+    console.count('steve');
+    console.count('wes');
+    console.count('wes');
+    console.count('wes');
+    
     // timing
-
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      })
   </script>
 </body>
 </html>
