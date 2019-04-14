@@ -96,6 +96,57 @@
   </div>
 
 <script>
+  /* function checkBetween(start, end, checkboxes){
+    for(let i=start; i<=end; i++){
+      checkboxes[i].checked=true;
+    }
+  }
+
+  const checkboxes = document.querySelectorAll('input');
+  let startBox, endBox, startIndex, endIndex;
+  checkboxes.forEach( (checkbox, index)=>{
+    checkbox.addEventListener('click', e=>{
+        if(startBox === undefined){
+          startBox = this;
+          startIndex=index;
+        }else{
+          if(e.shiftKey){
+            endBox=this;
+            endIndex=index;
+            startIndex < endIndex ? checkBetween(startIndex, endIndex, checkboxes) : checkBetween(endIndex, startIndex, checkboxes);
+          }else{
+            startBox=this;
+            startIndex=index;
+            endBox=undefined;
+            endIndex=undefined;
+          }
+        }
+      });
+  }) */
+
+  const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+  
+  let lastChecked;
+  function handleCheck(e){
+    //check if they had the shift key down
+    //and check that they are checking it not unchecking it
+    let inBetween= false;
+    if(e.shiftKey && this.checked){
+       //go ahead and do what we please
+       //loop over every single checkbox
+       checkboxes.forEach(checkbox=>{
+         if(checkbox===this || checkbox === lastChecked){
+           inBetween = !inBetween;
+         }
+         if(inBetween){
+           checkbox.checked=true;
+         }
+       })
+    }
+    lastChecked=this;
+  }
+  checkboxes.forEach(checkbox=>checkbox.addEventListener('click', handleCheck));
+
 </script>
 </body>
 </html>
