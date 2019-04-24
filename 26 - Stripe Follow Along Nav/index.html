@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stripe Nav</title>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">About Me</a>
+            <ul class="dropdown">
+                <li>
+                    <a href="#">about me 1</a>
+                </li>
+                <li>
+                    <a href="#">about me 2</a>
+                </li>
+                <li>
+                    <a href="#">about me 3</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">Document</a>
+            <ul class="dropdown">
+                <li>
+                    <a href="#">document1</a>
+                </li>
+                <li>
+                    <a href="#">document2</a>
+                </li>
+                <li>
+                    <a href="#">document3</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<style>
+.nav{
+    display:flex;
+}
+
+.nav > li{
+
+}
+
+.nav >li > a{
+    /* margin : 20px; */
+}
+.dropdown{
+    /* display:none; */
+}
+
+.nav > li> ul{
+    padding:0;
+}
+
+ul{
+    list-style-type: none;
+}
+
+</style>
+<script>
+    var headers = Array.from(document.querySelectorAll('.nav > li'));
+    headers.map(each => each.addEventListener('mouseenter', ()=>{
+        const dropdown = each.querySelector('ul');
+        dropdown.classList.toggle('dropdown');
+    }))
+    headers.map(each => each.addEventListener('mouseleave', ()=>{
+        const dropdown = each.querySelector('ul');
+        dropdown.classList.toggle('dropdown');
+    }))
+</script>
+</html>
